@@ -11,11 +11,12 @@
  */
 public class Picture
 {
-    private Square wall;
-    private Square window;
-    private Triangle roof;
+    private Square stage;
+    private Triangle hat;
     private Circle sun;
     private Person barny;
+    private Person audience1;
+    private Person audience2;
     private boolean drawn;
 
     /**
@@ -23,11 +24,12 @@ public class Picture
      */
     public Picture()
     {
-        wall = new Square();
-        window = new Square();
-        roof = new Triangle();  
+        stage = new Square();
+        hat = new Triangle();  
         sun = new Circle();
         barny = new Person();
+        audience1 = new Person();
+        audience2 = new Person();
         drawn = false;
     }
 
@@ -37,32 +39,37 @@ public class Picture
     public void draw()
     {
         if(!drawn) {
-            wall.moveHorizontal(-140);
-            wall.moveVertical(20);
-            wall.changeSize(120);
-            wall.makeVisible();
-            
-            window.changeColor("black");
-            window.moveHorizontal(-120);
-            window.moveVertical(40);
-            window.changeSize(40);
-            window.makeVisible();
+            stage.moveHorizontal(-140);
+            stage.moveVertical(60);
+            stage.changeSize(120);
+            stage.makeVisible();
     
-            roof.changeSize(60, 180);
-            roof.moveHorizontal(20);
-            roof.moveVertical(-60);
-            roof.makeVisible();
+            hat.changeSize(20, 20);
+            hat.moveHorizontal(20);
+            hat.moveVertical(-37);
+            hat.changeColor("magenta");
+            hat.makeVisible();
     
             sun.changeColor("yellow");
-            sun.moveHorizontal(100);
-            sun.moveVertical(-40);
+            sun.moveHorizontal(-190);
+            sun.moveVertical(-80);
             sun.changeSize(80);
             sun.makeVisible();
             
-            barny.moveHorizontal(-240);
-            barny.moveVertical(20);
+            barny.moveHorizontal(-50);
+            barny.moveVertical(-50);
             barny.makeVisible();
             drawn = true;
+            
+            audience1.moveHorizontal(-180);
+            audience1.moveVertical(65);
+            audience1.changeColor("blue");
+            audience1.makeVisible();
+            
+            audience2.moveHorizontal(180);
+            audience2.moveVertical(65);
+            audience2.changeColor("green");
+            audience2.makeVisible();
         }
     }
 
@@ -71,10 +78,12 @@ public class Picture
      */
     public void setBlackAndWhite()
     {
-        wall.changeColor("black");
-        window.changeColor("white");
-        roof.changeColor("black");
+        stage.changeColor("black");
+        hat.changeColor("black");
+        barny.changeColor("black");
         sun.changeColor("black");
+        audience1.changeColor("black");
+        audience2.changeColor("black");
     }
 
     /**
@@ -82,9 +91,11 @@ public class Picture
      */
     public void setColor()
     {
-        wall.changeColor("red");
-        window.changeColor("black");
-        roof.changeColor("green");
+        barny.changeColor("black");
+        stage.changeColor("red");
+        hat.changeColor("magenta");
+        audience1.changeColor("blue");
+        audience2.changeColor("green");
         sun.changeColor("yellow");
     }
 }
