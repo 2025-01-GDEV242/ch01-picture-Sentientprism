@@ -11,12 +11,12 @@
  */
 public class Picture
 {
-    private Square stage;
-    private Triangle hat;
+    private Triangle eye1;
+    private Person someguy;
     private Circle head;
     private Circle smile;
     private Square smilemask;
-    private Person audience2;
+    private Triangle eye2;
     private boolean drawn;
 
     /**
@@ -24,12 +24,12 @@ public class Picture
      */
     public Picture()
     {
-        stage = new Square();
-        hat = new Triangle();  
+        eye1 = new Triangle();
+        someguy = new Person();  
         head = new Circle();
         smile = new Circle();
         smilemask = new Square();
-        audience2 = new Person();
+        eye2 = new Triangle();
         drawn = false;
     }
 
@@ -39,16 +39,6 @@ public class Picture
     public void draw()
     {
         if(!drawn) {
-            stage.moveHorizontal(-140);
-            stage.moveVertical(60);
-            stage.changeSize(120);
-            stage.makeVisible();
-    
-            hat.changeSize(20, 20);
-            hat.moveHorizontal(20);
-            hat.moveVertical(-37);
-            hat.changeColor("magenta");
-            hat.makeVisible();
     
             head.changeColor("yellow");
             head.moveHorizontal(-100);
@@ -68,10 +58,21 @@ public class Picture
             smilemask.makeVisible();
             drawn = true;
             
-            audience2.moveHorizontal(180);
-            audience2.moveVertical(65);
-            audience2.changeColor("green");
-            audience2.makeVisible();
+            eye2.moveHorizontal(100);
+            eye2.moveVertical(-25);
+            eye2.changeColor("blue");
+            eye2.makeVisible();
+            
+            eye1.moveHorizontal(-20);
+            eye1.moveVertical(-25);
+            eye1.makeVisible();
+            eye1.changeColor("blue");
+            
+            someguy.changeSize(20, 20);
+            someguy.moveHorizontal(-20);
+            someguy.moveVertical(-160);
+            someguy.changeColor("magenta");
+            someguy.makeVisible();
         }
     }
 
@@ -80,12 +81,12 @@ public class Picture
      */
     public void setBlackAndWhite()
     {
-        stage.changeColor("black");
-        hat.changeColor("black");
-        smilemask.changeColor("black");
+        someguy.changeColor("black");
         head.changeColor("black");
-        smile.changeColor("black");
-        audience2.changeColor("black");
+        smile.changeColor("white");
+        smilemask.changeColor("black");
+        eye2.changeColor("white");
+        eye1.changeColor("white");
     }
 
     /**
@@ -93,11 +94,11 @@ public class Picture
      */
     public void setColor()
     {
-        smilemask.changeColor("yellow");
-        stage.changeColor("red");
-        hat.changeColor("magenta");
-        smile.changeColor("blue");
-        audience2.changeColor("green");
         head.changeColor("yellow");
+        smile.changeColor("blue");
+        smilemask.changeColor("yellow");
+        someguy.changeColor("magenta");
+        eye1.changeColor("blue");
+        eye2.changeColor("blue");
     }
 }
