@@ -13,9 +13,9 @@ public class Picture
 {
     private Square stage;
     private Triangle hat;
-    private Circle sun;
-    private Person barny;
-    private Person audience1;
+    private Circle head;
+    private Circle smile;
+    private Square smilemask;
     private Person audience2;
     private boolean drawn;
 
@@ -26,9 +26,9 @@ public class Picture
     {
         stage = new Square();
         hat = new Triangle();  
-        sun = new Circle();
-        barny = new Person();
-        audience1 = new Person();
+        head = new Circle();
+        smile = new Circle();
+        smilemask = new Square();
         audience2 = new Person();
         drawn = false;
     }
@@ -50,21 +50,23 @@ public class Picture
             hat.changeColor("magenta");
             hat.makeVisible();
     
-            sun.changeColor("yellow");
-            sun.moveHorizontal(-190);
-            sun.moveVertical(-80);
-            sun.changeSize(80);
-            sun.makeVisible();
+            head.changeColor("yellow");
+            head.moveHorizontal(-100);
+            head.moveVertical(-50);
+            head.changeSize(250);
+            head.makeVisible();
             
-            barny.moveHorizontal(-50);
-            barny.moveVertical(-50);
-            barny.makeVisible();
+            smile.moveHorizontal(-10);
+            smile.moveVertical(80);
+            smile.changeColor("blue");
+            smile.makeVisible();
+            
+            smilemask.changeColor("yellow");
+            smilemask.moveHorizontal(-90);
+            smilemask.moveVertical(20);
+            smilemask.changeSize(70);
+            smilemask.makeVisible();
             drawn = true;
-            
-            audience1.moveHorizontal(-180);
-            audience1.moveVertical(65);
-            audience1.changeColor("blue");
-            audience1.makeVisible();
             
             audience2.moveHorizontal(180);
             audience2.moveVertical(65);
@@ -80,9 +82,9 @@ public class Picture
     {
         stage.changeColor("black");
         hat.changeColor("black");
-        barny.changeColor("black");
-        sun.changeColor("black");
-        audience1.changeColor("black");
+        smilemask.changeColor("black");
+        head.changeColor("black");
+        smile.changeColor("black");
         audience2.changeColor("black");
     }
 
@@ -91,11 +93,11 @@ public class Picture
      */
     public void setColor()
     {
-        barny.changeColor("black");
+        smilemask.changeColor("yellow");
         stage.changeColor("red");
         hat.changeColor("magenta");
-        audience1.changeColor("blue");
+        smile.changeColor("blue");
         audience2.changeColor("green");
-        sun.changeColor("yellow");
+        head.changeColor("yellow");
     }
 }
